@@ -1,0 +1,19 @@
+
+#view-topic-comments {
+    .download {
+        display: block;
+        padding-top: 16%;
+        background: url(../images/download.png) no-repeat top;
+        background-size: contain;
+    }
+    .topic-comments {
+        position: relative;
+        margin: 0 10px;
+    }
+    .comment-add {
+        display: block;
+        border: 10px solid #fff;
+        color: #bbb;
+        padding: 10px;
+    }
+}

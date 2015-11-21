@@ -1,0 +1,194 @@
+* baseUrl: http://123.57.253.146
+
+1.获取商品详情
+URL:baseUrl/beacon/data/getItemBycityName.do
+请求参数：
+    id:商品id,
+    cityName:@"北京市"
+
+{
+    "code": 1,
+    "response": {
+        "bid": 0,    // 此参数在此返回结果没有用，可忽略
+        "big_Category": "<null>", // // 此参数在此返回结果没有用，可忽略
+        "big_id": 0, // // 此参数在此返回结果没有用，可忽略
+        "brand": {
+            "category": 16,
+            "contactor": "",
+            "createTime": 1437495361000,
+            "description": "…",
+            "follow": 0,
+            "id": 6,
+            "img": "/images/e2dc0b8c42a051b6bf8e057b2f038704.png",
+            "item": 0,
+            "letter": "ZARA",
+            "logo": "/images/1fd27c742affe1b2974401a466650264.png",
+            "name": "ZARA",
+            "point": 0,
+            "position": "",
+            "priority": 100,
+            "status": "active",
+            "topic": 0,
+        },
+        "brandLogo": "<null>", // // 此参数在此返回结果没有用，可忽略
+        "brandName": "<null>", // // 此参数在此返回结果没有用，可忽略
+        "description": "….",
+        "follow": 0, // 是否收藏
+        "id": 3385,  // 商品id
+        "img": "/images/ac78261c16a605e643d5633c622d1dd4.jpg",
+        "isDiscount": 0, // 0表示不打折，1.表示打折
+        "isShow": 1, // 可忽略
+        "isZouItem": 0,  // 可忽略
+        "name": "\U4eff\U76ae\U62fc\U63a5\U53e3\U888b\U4e39\U5b81\U886c\U886b",
+        "offPrice": "299.00",    // 折后价格
+        "online": 1, // 0表示线下+线上
+        "price": "299.00", // 原始价钱
+        "priority": 0,
+        "properties": "17,37,40,47,69",  // 可忽略
+        "range": 0,
+        "sellOut": 0,  // 是否已售完
+        "sex_id": 1,   // 可忽略
+        "stores": "",
+        "sub_Categories": 1,
+        "updateTime": 1446207572000, //
+        "url": "…",  // 点击在线购买跳转的链接
+        "useType": 0,
+    }
+}
+
+*注意：打不打折要根据isDiscount字段判断，如果打折，则返回的数据中price和offPirce的值是不同的，反之相同
+
+2.获取同类推荐
+URL:baseUrl/beacon/data/listSameCategoryItemsByid.do
+请求参数：
+    size:7
+    id:商品id
+
+3.当前品牌
+URL:baseUrl/beacon/data/listItemByBid.do
+请求参数：
+    id: 商品所属的品牌id
+    start: 0
+    size: 9
+
+4.获取品牌详情
+URL:baseURL/beacon/data/getBrand.do
+请求参数：
+    id:品牌id
+
+5.获取品牌下的专题
+URL:baseURL/beacon/data/listTopicByBid.do
+请求参数:
+    id: 品牌id
+    start: 开始值
+    size：每次返回的专题数量
+
+返回参数:
+{
+    "code": 1,
+    "response": {
+        "list": [{
+            "bannerImg": "<null>",
+            "brands": "6,7,72,64",
+            "comments": "<null>",
+            "description": "",
+            "id": 103,
+            "img": "/images/65bb22a0432d838c4eb011412d80b76c.jpg",
+            "isHome": 0,
+            "isShow": 1,
+            "items": "586,588,583,589,584,587,585,566",
+            "subTitle": "<null>",
+            "title": "\U9a7c\U8272",
+            "totals": "<null>",
+            "type": "<null>",
+            "updateTime": 1446179897000,
+            "url": "<null>",
+        }, {
+            "bannerImg": "<null>",
+            "brands": "6,7",
+            "comments": "<null>",
+            "description": "",
+            "id": 102,
+            "img": "/images/35e5d8fa42569c2cce3a88cb51cb55b3.jpg",
+            "isHome": 0,
+            "isShow": 1,
+            "items": "581,582,579,580,1433,1427,242",
+            "subTitle": "<null>", // 子标题
+            "title": "\U8d39\U591a\U62c9\U5e3d",
+            "totals": "<null>",
+            "type": "<null>",
+            "updateTime": 1446031951000,
+            "url": "<null>",
+        }]
+    }
+}
+
+6.获取专题下的商品
+URL:baseUrl/beacon/data/listItemByBid.do
+请求参数：
+    id:品牌id
+    start:开始值
+    size:7
+
+7.获取专题下的商品：
+URL:baseURL/beacon/data/listItemByTid.do
+请求参数：
+    id:专题id,
+    start:开始值,
+    size:7
+
+8.获取专题下的所有评论
+baseURL/beacon/data/getAllCommentByTopic.do
+请求参数：
+    int tid     // 专题id
+    Long max_id // 评论的createTime
+    int size    // 获取评论数量
+
+{
+    "code": 1,
+    "response": {
+        "size": 1,
+        "list": [{
+            "id": 3,    // 评论id
+            "tid": 100,  // 专题id
+            "reply": "测测测擦擦擦擦擦擦擦擦擦擦擦擦猜测额鹅鹅鹅饿鹅鹅鹅的顶顶顶顶顶顶顶顶顶顶是",
+            "createTime": 1445759885000,
+            "likeCount": 10,    // 点赞数
+            "user": {
+                "username": "18519504178",
+                "nickname": "用户1445030.109726",
+                "sex": 0,
+                "img": "/images/c6742f3b0639470e53b1e6a3d04436a7.jpg",
+                "phone": "18519504178",
+                "score": 0,
+                "point": 100,
+                "status": "active",
+                "createTime": 1445001357000,
+                "invitation_code": "70d1fc61",
+                "notNullUsername": "18519504178"
+            },
+            "replyUser": null,
+            "topic": null,
+            "follow": false // 是否点赞过
+        }]
+    }
+}
+
+注意：当第一获取评论时不需要传max_id,之后传每个数组最后一个元素的createTime
+
+9.获取商品详情
+URL:baseUrl/beacon/admin/getTopic.do
+请求参数：
+    id: 专题id,
+
+
+10.获取商品地址
+URL:baseUrl/beacon/data/listStoresByItemid.do
+请求参数：
+    id: 商品id,
+
+
+11.获取店铺详情
+URL:baseUrl/beacon/data/listBrandStores.do
+请求参数：
+    id: 商品id,

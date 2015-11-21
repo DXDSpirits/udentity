@@ -1,0 +1,158 @@
+
+#view-topic {
+    .topic-wrapper {
+        .cover {
+            padding-top: 50%;
+            position: relative;
+        }
+        .container-fluid {
+            padding-top: 20px;
+            padding-bottom: 30px;
+            background-color: #fff;
+        }
+        .social {
+            margin: 20px auto;
+            position: relative;
+        }
+        .dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 3px;
+            height: 3px;
+            background: url(../images/dot.jpg) no-repeat center;
+            background-size: contain;
+        }
+        .description {
+            color: #999;
+        }
+        .comment, .share {
+            display: inline-block;
+            padding-top: 5px;
+            padding-left: 25px;
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: auto 20px;
+        }
+        .comment { background-image: url(../images/sprites/comment.png); }
+        .share { background-image: url(../images/sprites/share.png); }
+    }
+    .topic-products {
+        .media-list {
+            @include clearfix();
+        }
+        .media-item {
+            float: left;
+            width: 47%;
+            margin-left: 2%;
+            margin-top: 2%;
+            background-color: #fff;
+        }
+        .img {
+            padding-top: 130%;
+        }
+        .content {
+            padding: 15px 10px;
+        }
+        .brand {
+            display: inline-block;
+            background-color: #000;
+            padding: 2px 5px;
+            color: #fff;
+        }
+        .discount {
+            text-decoration: line-through;
+            display: inline-block;
+            margin-right: 1em;
+            color: #999;
+        }
+        .name {
+            margin: 15px auto 10px;
+            @include ellipsis();
+        }
+        .deco-title {
+            height: 50px;
+            background: url(../images/topic-products-title.png) no-repeat center;
+            background-size: auto 25px;
+            margin-top: 3%;
+        }
+    }
+    .topic-comments {
+        position: relative;
+        border-top: 1px solid #bbb;
+        padding-top: 20px;
+        margin: 20px 10px 50px;
+        &::before, &::after {
+            content: "";
+            position: absolute;
+            height: 4px;
+            width: 4px;
+            top: 0;
+            border-radius: 50%;
+            background-color: #bbb;
+            @include transform(translate3d(0, -62.5%, 0));
+        }
+        &::before { left: -1px; }
+        &::after { right: -1px; }
+        .comment-title {
+            color: #999;
+            font-size: 1.1em;
+        }
+        .comment-button {
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 20px;
+            display: inline-block;
+            padding-top: 5px;
+            padding-left: 25px;
+            background: url(../images/sprites/comment.png) no-repeat left;
+            background-size: auto 16px;
+        }
+        .comment-tip {
+            display: block;
+            cursor: pointer;
+            margin: 20px auto;
+            font-size: 0.9em;
+        }
+    }
+}
+
+.comment-item {
+    margin: 20px auto;
+    padding-left: 55px;
+    position: relative;
+    .avatar {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 5px;
+    }
+    .name, .time {
+        font-size: 12px;
+        color: #999;
+    }
+    .reply {
+        margin-top: 10px;
+    }
+    .like {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        > span {
+            display: inline-block;
+            height: 14px;
+            font-size: 12px;
+            padding-left: 20px;
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: auto 14px;
+            background-image: url(../images/sprites/like-dark.png);
+            &.liked {
+                background-image: url(../images/sprites/like-light.png);
+            }
+        }
+    }
+}

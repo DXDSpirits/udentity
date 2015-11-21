@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="购帮">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>购帮</title>
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="购帮">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="购帮">
+
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="stylesheet" href="styles/bootstrap-custom.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+
+    <div id="apploader" class="invisible">
+        <div class="loader">
+            <div class="loading-sprite"></div>
+            <p class="ajax-error hidden">网络不给力啊，请稍后再试！</p>
+        </div>
+    </div>
+
+    <!-- Views -->
+
+    <div class="views-wrapper">
+        <section class="view view-hidden" id="view-product">
+            <div class="wrapper">
+                <div class="product-wrapper"></div>
+                <div class="store text-center hidden">
+                    <button class="btn btn-outline">查看所在店铺</button>
+                </div>
+                <div class="media-carousel">
+                    <ul class="nav nav-pills text-center">
+                        <li class="active"><a href="#view-product .similar-products" data-toggle="tab">同类推荐</a></li>
+                        <li><a href="#view-product .brand-products" data-toggle="tab">当前品牌</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active fade in similar-products">
+                            <div class="media-list"></div>
+                        </div>
+                        <div class="tab-pane fade brand-products">
+                            <div class="media-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="view view-hidden" id="view-brand">
+            <div class="wrapper">
+                <div class="brand-wrapper"></div>
+                <div class="store text-center">
+                    <button class="btn btn-outline">查看品牌店铺</button>
+                </div>
+                <div class="media-carousel">
+                    <ul class="nav nav-pills text-center">
+                        <li class="active"><a href="#view-brand .brand-products" data-toggle="tab">商品</a></li>
+                        <li><a href="#view-brand .brand-topics" data-toggle="tab">专题</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active fade in brand-products">
+                            <div class="media-list clearfix"></div>
+                        </div>
+                        <div class="tab-pane fade brand-topics">
+                            <div class="media-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="view view-hidden" id="view-topic">
+            <div class="wrapper">
+                <div class="topic-wrapper"></div>
+                <div class="topic-products">
+                    <div class="deco-title"></div>
+                    <div class="media-list"></div>
+                </div>
+                <div class="topic-comments">
+                    <div class="comment-title">评论</div>
+                    <a class="comment-button" href="app.html">添加评论</a>
+                    <div class="comments-list"></div>
+                    <a class="comment-tip text-center">查看全部<span></span>条评论</a>
+                </div>
+            </div>
+        </section>
+        <section class="view view-hidden" id="view-topic-comments">
+            <div class="wrapper">
+                <a class="download" href="app.html"></a>
+                <div class="topic-comments">
+                    <div class="comments-list"></div>
+                </div>
+                <a class="comment-add" href="app.html">添加评论</a>
+            </div>
+        </section>
+        <section class="view view-hidden" id="view-address">
+            <div class="wrapper">
+                <div class="address-list"></div>
+            </div>
+        </section>
+    </div>
+
+    <a id="apppromo" href="app.html"></a>
+
+    <div id="desc-full" class="invisible">
+        <h4 class="text-center"></h4>
+        <article class="text-justify"></article>
+        <div class="x"></div>
+    </div>
+
+    <!-- Templates -->
+
+    <script id="template-product-detail" type="text/x-handlebars-template">
+        <div class="img cover" data-bg-src="{{apiFullpath img}}">
+            <div class="img brand-logo" data-bg-src="{{apiFullpath brand.logo}}" data-route="brand/{{brand.id}}"></div>
+        </div>
+        <div class="container-fluid">
+            <h4 class="name">{{name}}</h4>
+            <a class="btn btn-default btn-lg btn-block btn-purchase" href="app.html">￥{{price}} 购买</a>
+            <div class="social text-center clearfix">
+                <div class="col-xs-6"><a class="like" href="app.html">收藏</a></div>
+                <div class="dot"></div>
+                <div class="col-xs-6"><a class="share" href="app.html">分享</a></div>
+            </div>
+            <div class="desc-title text-center">商品详情</div>
+            <div class="description text-justify">{{{description}}}</div>
+        </div>
+    </script>
+
+    <script id="template-brand-detail" type="text/x-handlebars-template">
+        <div class="img cover" data-bg-src="{{apiFullpath img}}">
+            <div class="img brand-logo" data-bg-src="{{apiFullpath logo}}"></div>
+            <div class="name text-center">{{name}}</div>
+        </div>
+        <div class="container-fluid">
+            <div class="social text-center clearfix">
+                <div class="col-xs-6"><a class="subscribe" href="app.html">关注</a></div>
+                <div class="dot"></div>
+                <div class="col-xs-6"><a class="share" href="app.html">分享</a></div>
+            </div>
+            <div class="description">
+                <div class="desc">{{{description}}}</div>
+                <span class="more">查看更多</span>
+            </div>
+        </div>
+    </script>
+
+    <script id="template-topic-detail" type="text/x-handlebars-template">
+        <div class="img cover" data-bg-src="{{apiFullpath img}}"></div>
+        <div class="container-fluid">
+            <h4 class="title">{{title}}</h4>
+            <div class="social text-center clearfix">
+                <div class="col-xs-6"><a class="comment" href="app.html">评论</a></div>
+                <div class="col-xs-6"><a class="share" href="app.html">分享</a></div>
+                <div class="dot"></div>
+            </div>
+            <div class="description text-justify">{{{description}}}</div>
+        </div>
+    </script>
+
+    <script id="template-product-media-item" type="text/x-handlebars-template">
+        <div class="img" data-bg-src="{{apiFullpath img}}"></div>
+        <div class="content">
+            <div><span class="brand">{{brand.name}}</span></div>
+            <div class="name">{{name}}</div>
+            <div>
+                {{#if isDiscount}}<span class="discount">￥{{price}}</span>{{/if}}
+                <span class="text-success">￥{{offPrice}}</span>
+            </div>
+        </div>
+    </script>
+
+    <script id="template-comment-item" type="text/x-handlebars-template">
+        <div class="avatar img" data-bg-src="{{apiFullpath user.img}}"></div>
+        <a class="like" href="app.html">
+            {{#if likeCount}}
+                <span class="liked text-success">{{likeCount}}</span>
+            {{else}}
+                <span></span>
+            {{/if}}
+        </a>
+        <div class="name">{{user.nickname}}</div>
+        <div class="time">{{formatted_date}}</div>
+        <div class="reply">{{reply}}</div>
+    </script>
+
+    <script id="template-address-item" type="text/x-handlebars-template">
+        <h4 class="name">{{name}}</h4>
+        <div>{{cityName}}{{address}}</div>
+        {{#if phone}}<div class="phone">{{phone}}</div>{{/if}}
+        <a href="http://api.map.baidu.com/marker?location={{lng}},{{lat}}&title={{name}}&content={{cityName}}{{address}}&output=html"
+            class="distance"></a>
+    </script>
+
+    <!-- build:js scripts/vendor.min.js -->
+    <script src="scripts/vendor/jquery-2.1.1.min.js"></script>
+    <script src="scripts/vendor/underscore.min.js"></script>
+    <script src="scripts/vendor/handlebars.min.js"></script>
+    <script src="scripts/vendor/backbone.min.js"></script>
+    <script src="scripts/vendor/bootstrap.min.js"></script>
+    <script src="scripts/vendor/fastclick.js"></script>
+    <script src="scripts/vendor/moment.js"></script>
+    <script src="scripts/vendor/moment.zh-cn.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/amour.min.js -->
+    <script src="scripts/amour.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:js scripts/app.min.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/pageview.js"></script>
+    <script src="scripts/router.js"></script>
+    <script src="scripts/view-product.js"></script>
+    <script src="scripts/view-brand.js"></script>
+    <script src="scripts/view-topic.js"></script>
+    <script src="scripts/view-topic-comments.js"></script>
+    <script src="scripts/view-address.js"></script>
+    <script src="scripts/appstart.js"></script>
+    <!-- endbuild -->
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+
+#view-product {
+    .product-wrapper {
+        margin-bottom: 1px;
+        .cover {
+            padding-top: percentage(960/750);
+            position: relative;
+        }
+        .brand-logo {
+            height: 60px;
+            width: 60px;
+            position: absolute;
+            bottom: -30px;
+            right: 15px;
+            border-radius: 50%;
+            box-shadow: 0 0 0 2px rgba(#eee, 0.7);
+        }
+        .container-fluid {
+            padding-top: 10px;
+            padding-bottom: 30px;
+            background-color: #fff;
+        }
+        .btn-purchase {
+            margin: 20px auto;
+        }
+        .social {
+            margin: 30px auto;
+            position: relative;
+        }
+        .dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 3px;
+            height: 3px;
+            background: url(../images/dot.jpg) no-repeat center;
+            background-size: contain;
+        }
+        .desc-title {
+            margin: 30px auto;
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                height: 30px;
+                background: url(../images/wave.png) no-repeat center;
+                background-size: auto 5px;
+            }
+        }
+        .like, .share {
+            display: inline-block;
+            padding-top: 5px;
+            padding-left: 25px;
+            background-repeat: no-repeat;
+            background-position: left;
+            background-size: auto 20px;
+        }
+        .like { background-image: url(../images/sprites/heart.png); }
+        .share { background-image: url(../images/sprites/share.png); }
+    }
+    .store {
+        padding: 15px;
+        background-color: #fff;
+    }
+    .media-carousel {
+        margin-top: 20px;
+        margin-bottom: 40px;
+        background-color: #fff;
+        .nav > li {
+            width: 50%;
+            margin: 0;
+            > a {
+                display: inline-block;
+                position: relative;
+            }
+            &.active > a::after {
+                content: "";
+                position: absolute;
+                left: 15px;
+                right: 15px;
+                bottom: 3px;
+                height: 2px;
+                background-color: $brand-success;
+            }
+        }
+        .tab-pane {
+            overflow: auto;
+        }
+    }
+    .media-list {
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+    }
+    .media-item {
+        cursor: pointer;
+        display: inline-block;
+        width: 100px;
+        margin: 5px;
+        line-height: 1.2;
+        .name {
+            @include ellipsis();
+        }
+        .img {
+            height: 130px;
+            border: 1px solid #f0f0f0;
+            margin-bottom: 10px;
+        }
+    }
+}

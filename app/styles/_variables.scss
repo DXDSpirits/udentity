@@ -1,0 +1,174 @@
+
+@function image-url($path) {
+    @return url("/assets/images/" + $path);
+}
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+$gray-base:              #000 !default;
+$gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:              lighten($gray-base, 20%) !default;   // #333
+$gray:                   lighten($gray-base, 33.5%) !default; // #555
+$gray-light:             lighten($gray-base, 46.7%) !default; // #777
+$gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
+$brand-primary:         #ff3265 !default;
+$brand-success:         #00b968 !default;
+$brand-info:            #323a45 !default;
+$brand-warning:         #fcab53 !default;
+$brand-danger:          #d667cd !default;
+
+
+//== Scaffolding
+$body-bg:               #fff !default;
+$text-color:            $gray-dark !default;
+$link-color:            $text-color !default;
+$link-hover-color:      lighten($link-color, 50%) !default;
+$link-hover-decoration: none !default;
+
+
+//== Typography
+// $font-family-sans-serif:  "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif:  Avenir, "Helvetica Neue", Arial,
+                          "Hiragino Sans GB", "Hiragino Sans GB W3",
+                          "Microsoft YaHei", "Wenquanyi Micro Hei",
+                          sans-serif !default;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+
+$font-family-base:        $font-family-sans-serif !default;
+
+$font-size-base:          14px !default;
+$font-size-large:         16px !default;
+$font-size-small:         12px !default;
+
+$font-size-h1:            24px !default;
+$font-size-h2:            20px !default;
+$font-size-h3:            18px !default;
+$font-size-h4:            $font-size-large !default;
+$font-size-h5:            $font-size-base !default;
+$font-size-h6:            $font-size-small !default;
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        1.428571429 !default; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+//-- Iconography
+$icon-font-path: "../fonts/bootstrap/" !default;
+
+
+//== Components
+//
+//## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
+
+$padding-base-vertical:     6px !default;
+$padding-base-horizontal:   12px !default;
+
+$padding-large-vertical:    7px !default;
+$padding-large-horizontal:  14px !default;
+
+$padding-small-vertical:    5px !default;
+$padding-small-horizontal:  10px !default;
+
+$padding-xs-vertical:       1px !default;
+$padding-xs-horizontal:     5px !default;
+
+$line-height-large:         1.5 !default;
+$line-height-small:         1.5 !default;
+
+$border-radius-base:        0 !default;
+$border-radius-large:       0 !default;
+$border-radius-small:       0 !default;
+
+$component-active-color:    $brand-success !default;
+$component-active-bg:       transparent !default;
+
+//== Navs
+//
+//##
+
+$nav-link-hover-bg:         transparent !default;
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+$btn-font-weight:                normal !default;
+
+$btn-default-color:              #fff !default;
+$btn-default-bg:                 #000 !default;
+$btn-default-border:             #000 !default;
+
+$btn-primary-color:              #fff !default;
+$btn-primary-bg:                 $brand-primary !default;
+// $btn-primary-border:             $brand-primary !default;
+$btn-primary-border:             transparent !default;
+
+$btn-success-color:              #fff !default;
+$btn-success-bg:                 $brand-success !default;
+// $btn-success-border:             $brand-success !default;
+$btn-success-border:             transparent !default;
+
+$btn-info-color:                 #fff !default;
+$btn-info-bg:                    $brand-info !default;
+// $btn-info-border:                $brand-info !default;
+$btn-info-border:                transparent !default;
+
+$btn-warning-color:              #fff !default;
+$btn-warning-bg:                 $brand-warning !default;
+// $btn-warning-border:             $brand-warning !default;
+$btn-warning-border:             transparent !default;
+
+$btn-danger-color:               #fff !default;
+$btn-danger-bg:                  $brand-danger !default;
+// $btn-danger-border:              $brand-danger !default;
+$btn-danger-border:              transparent !default;
+
+$btn-border-radius-base:         $border-radius-base !default;
+$btn-border-radius-large:        $border-radius-large !default;
+$btn-border-radius-small:        $border-radius-small !default;
+
+
+//== Forms
+$input-bg:                       #fff !default;
+$input-border:                   transparent !default;
+
+$input-border-radius:            $border-radius-base !default;
+$input-border-radius-large:      $border-radius-large !default;
+$input-border-radius-small:      $border-radius-small !default;
+
+$input-border-focus:             $input-border !default;
+
+$input-group-addon-bg:           #ccc !default;
+$input-group-addon-border-color: transparent !default;
+
+
+//== Popovers
+//
+//##
+
+//** Popover body background color
+$popover-bg:                          #fff !default;
+$popover-max-width:                   240px !default;
+$popover-border-color:                transparent !default;
+$popover-fallback-border-color:       transparent !default;
+
+$popover-arrow-width:                 10px !default;
+$popover-arrow-outer-width:           $popover-arrow-width !default;
+
+//== Type
+$headings-small-color:        inherit !default;
+
+
+//== Panels
+$panel-bg:                    #f0f0f0 !default;
+
+
+//== Zindex
+$zindex-max:                  5000;
+$zindex-modalview:            8000;
+$zindex-guide:                9000;
+$zindex-loading:              9999;

@@ -1,0 +1,193 @@
+
+@import "variables";
+
+//======================================== Bootstrap ========================================
+
+@import "bootstrap/bootstrap";
+
+//===========================================================================================
+
+a:hover, a:focus {
+    color: $link-hover-color;
+    text-decoration: none;
+}
+
+a:active {
+    color: $link-color;
+    opacity: 0.3;
+}
+
+@include text-emphasis-variant('.text-primary', $brand-primary);
+@include text-emphasis-variant('.text-success', $brand-success);
+@include text-emphasis-variant('.text-info', $brand-info);
+@include text-emphasis-variant('.text-warning', $brand-warning);
+@include text-emphasis-variant('.text-danger', $brand-danger);
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+    margin-top: ($line-height-computed / 2);
+}
+
+mark,
+.mark {
+    background-color: transparent;
+    color: inherit;
+    padding: .2em;
+}
+
+.invisible {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.form-control {
+    @include box-shadow(none);
+    &:focus {
+        outline: 0;
+        @include box-shadow(none);
+    }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    input[type="date"],
+    input[type="time"],
+    input[type="datetime-local"],
+    input[type="month"] {
+        line-height: 46px;
+    }
+}
+
+input[type=tel],
+input[type=url],
+input[type=text],
+input[type=email],
+input[type=search],
+input[type=number],
+input[type=password],
+input[type=date],
+input[type=time],
+input[type=datetime-local],
+textarea {
+    &.form-control {
+        -webkit-appearance: none;
+    }
+}
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"] {
+    &.form-control {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+.input-group-addon {
+    color: #fff;
+}
+
+// .input-group-addon {
+//     position: relative;
+//     border-width: 1px 0 1px 1px;
+//     border-style: solid;
+//     border-color: $input-border;
+//     &::after {
+//         content: "";
+//         position: absolute;
+//         right: 0;
+//         top: 15%;
+//         height: 70%;
+//         width: 1px;
+//         background-color: rgba($input-border, 0.7);
+//     }
+//     & + .form-control {
+//         border-left: 0;
+//     }
+// }
+
+.btn {
+    &, &:hover, &:focus,
+    &:active, &.active,
+    .open > &.dropdown-toggle {
+        outline: 0;
+        box-shadow: none;
+    }
+    &:active, &.active {
+        &:focus, &.focus {
+            outline: 0;
+        }
+    }
+}
+
+.btn-primary {
+    &:hover,
+    &:focus,
+    &.focus, {
+        background-color: #f42156;
+    }
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        background-color: #f42156;
+        &:hover,
+        &:focus,
+        &.focus {
+            background-color: #f42156;
+        }
+    }
+}
+
+.btn-outline {
+    color: $btn-default-bg;
+    background-color: transparent;
+    border-color: $btn-default-bg;
+    border-width: 2px;
+    &:hover, &:focus, &:active {
+        color: $btn-default-color;
+        background-color: $btn-default-bg;
+        border-color: transparent;
+    }
+}
+
+.btn-outline-inverse {
+    color: #fff;
+    background-color: transparent;
+    border-color: #fff;
+    &:hover, &:focus, &:active {
+        color: $brand-primary;
+        background-color: #fff;
+        border-color: transparent;
+    }
+}
+
+.dropdown-menu {
+    margin: 0;
+    padding: 0;
+    // border: 0;
+    border-color: transparent;
+    border-radius: 0;
+    &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: -10px;
+        left: 15px;
+        border-style: solid;
+        border-width: 0 10px 10px 10px;
+        border-color: transparent transparent #fff transparent;
+    }
+    &.pull-right::after, .pull-right > &::after {
+        right: 15px;
+        left: auto;
+    }
+    > li > a {
+        cursor: pointer;
+        padding: 1em 2em;
+    }
+}
+
+.progress {
+    border-radius: 0;
+}

@@ -1,0 +1,14 @@
+
+#global-header {
+    @include position(fixed, 0 0 auto 0);
+    padding: 20px;
+    z-index: 9000;
+    color: #fff;
+    .brand {
+        text-transform: uppercase;
+        font-size: 1.5em;
+    }
+    a {
+        color: inherit;
+    }
+}

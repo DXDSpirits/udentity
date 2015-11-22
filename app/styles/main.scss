@@ -3,10 +3,11 @@
 
 @import "amour";
 
-@import "components/apploader";
-@import "components/view-layouts";
-@import "components/view-product";
-@import "components/view-brand";
-@import "components/view-topic";
-@import "components/view-topic-comments";
-@import "components/view-address";
+@import "components/layouts";
+@import "components/header";
+@import "components/view-prologue";
+@import "components/view-problems";
+@import "components/view-solution";
+@import "components/view-printing";
+@import "components/view-platform";
+@import "components/view-contact";

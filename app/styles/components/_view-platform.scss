@@ -1,4 +1,18 @@
 
 #view-platform {
-    background-color: #a2ddff;
+    background-color: #1d5596;
+    color: #fff;
+    .platforms {
+        position: relative;
+        height: 30%;
+        top: 30%;
+    }
+    .section-text {
+        margin: 0 auto;
+        width: 50%;
+        position: relative;
+        font-size: 1.5em;
+        top: 40%;
+        text-align: center;
+    }
 }

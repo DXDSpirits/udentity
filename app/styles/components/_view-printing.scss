@@ -1,4 +1,18 @@
 
 #view-printing {
     background-color: #00aef0;
+    color: #fff;
+    .mockups {
+        position: relative;
+        height: 30%;
+        top: 30%;
+    }
+    .section-text {
+        margin: 0 auto;
+        width: 50%;
+        position: relative;
+        font-size: 1.5em;
+        top: 40%;
+        text-align: center;
+    }
 }
